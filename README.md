@@ -16,7 +16,7 @@ pkg update && pkg upgrade -y
 pkg install python ffmpeg git tmux -y
 
 # 2. Projeyi klonla
-git clone [https://github.com/KULLANICI_ADI/music-downloader-bot.git](https://github.com/KULLANICI_ADI/music-downloader-bot.git)
+git clone [https://github.com/susmusbey03-star/music-downloader-bot.git](https://github.com/susmusbey03-star/music-downloader-bot.git)
 cd music-downloader-bot
 
 # 3. Bağımlılıkları yükle
