@@ -12,19 +12,11 @@ TOKEN = "8655201597:AAG5FIVZWdYcR264HGoS2MvuordCyrcQ5hU"
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """/start komutuna cevap verir."""
     welcome_text = (
-        "👋 **Gelişmiş Müzik ve Video İndirme Botuna Hoş Geldiniz!**
-
-"
-        "İster şarkı adı yazarak aratın, ister doğrudan YouTube / SoundCloud linki gönderin.
-
-"
-        "🛠 **Kullanım Komutları:**
-"
-        "🎵 `/indir <şarkı adı veya link>` - MP3 Müzik İndir
-"
-        "🎬 `/video <video adı veya link>` - MP4 Video İndir
-
-"
+        "👋 **Gelişmiş Müzik ve Video İndirme Botuna Hoş Geldiniz!**\n\n"
+        "İster şarkı adı yazarak aratın, ister doğrudan YouTube / SoundCloud linki gönderin.\n\n"
+        "🛠 **Kullanım Komutları:**\n"
+        "🎵 `/indir <şarkı adı veya link>` - MP3 Müzik İndir\n"
+        "🎬 `/video <video adı veya link>` - MP4 Video İndir\n\n"
         "💡 *İpucu:* Komut yazmadan doğrudan şarkı adı veya bağlantı da gönderebilirsiniz!"
     )
     await update.message.reply_text(welcome_text, parse_mode="Markdown")
@@ -32,8 +24,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def download_audio_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """/indir komutu ile arama veya link üzerinden MP3 indirir."""
     if not context.args:
-        await update.message.reply_text("⚠️ Lütfen bir şarkı adı veya link girin!
-Örnek: `/indir Sezen Aksu Kaç Yıl Geçti Arayadan`", parse_mode="Markdown")
+        await update.message.reply_text("⚠️ Lütfen bir şarkı adı veya link girin!\nÖrnek: `/indir Sezen Aksu Kaç Yıl Geçti Arayadan`", parse_mode="Markdown")
         return
 
     query = " ".join(context.args).strip()
@@ -42,8 +33,7 @@ async def download_audio_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE)
 async def download_video_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """/video komutu ile arama veya link üzerinden MP4 indirir."""
     if not context.args:
-        await update.message.reply_text("⚠️ Lütfen bir video adı veya link girin!
-Örnek: `/video https://youtu.be/...`", parse_mode="Markdown")
+        await update.message.reply_text("⚠️ Lütfen bir video adı veya link girin!\nÖrnek: `/video https://youtu.be/...`", parse_mode="Markdown")
         return
 
     query = " ".join(context.args).strip()
@@ -117,8 +107,7 @@ async def process_download(update: Update, query: str, mode: str = 'audio'):
 
         await status_message.edit_text(f"📤 {type_icon} **{title}** Telegram'a yükleniyor...")
         
-        caption_text = f"{type_icon} **{title}**
-👤 Kanal: {uploader}"
+        caption_text = f"{type_icon} **{title}**\n👤 Kanal: {uploader}"
 
         # Dosyayı kullanıcıya gönder
         with open(downloaded_file, 'rb') as media_file:
@@ -168,3 +157,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    
